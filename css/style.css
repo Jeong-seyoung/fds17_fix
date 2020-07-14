@@ -10,7 +10,7 @@ body{
   font-size:1.6rem;/*html 10px * 1.6= 16px으로 설정*/
   color:#181818;
   background-color: #fff;
-  margin: 5px;/* emmet: m5px */
+  /* emmet: m~px */
   font-family: 'Spoqa Han Sans';
   font-weight: 400;
 }
