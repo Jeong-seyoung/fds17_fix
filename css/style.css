@@ -1,0 +1,17 @@
+/* @charset "utf-8"; 최신버전에서는 오류가 뜨므로 생략한다. */
+@import url(./normalize.css);
+@import url(//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSans-kr.css);
+/* @->엣사인이라고 읽음 */
+
+html{
+  font-size:10px;
+}
+body{
+  font-size:1.6rem;/*html 10px * 1.6= 16px으로 설정*/
+  color:#181818;
+  background-color: #fff;
+  margin: 5px;/* emmet: m5px */
+  font-family: 'Spoqa Han Sans';
+  font-weight: 400;
+}
+/* color 16진수 표현 0~F 16*16=256컬러 R:256표현 G:256표현 B:256표현 #RRGGBB 축약해서 세글자로 표현가능*/
