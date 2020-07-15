@@ -31,18 +31,24 @@ body{
   background-color: yellow;
   margin-left: auto;
 }
-/* 메인콘텐츠 */
-.main{
-  background-color:blue;
-  padding: 30px 15px;
-  /* padding:0 15px;설계 측면에서 충분히 고려하고 지정할것 */
-  /* height:400px; */
-  overflow:hidden;
-  min-height:450px;
-}
+
 .visual{
   height:120px;
   background-color:lime
+}
+/* 메인콘텐츠 */
+.main{
+  background-color:blue;
+  padding: 30px 15px;/* 설계 측면에서 충분히 고려하고 지정할것 */ 
+  height:400px;
+  /* overflow:hidden; */
+  min-height:450px;
+}
+
+.clearfix::after{/* 자바스크립트에서 다룰 수 없다. 가상으로 만들어낸것이라 dom에 없기때문 */
+  content:"";/* 영역을 만들어낸것 */
+  clear:both;
+  display: block;
 }
 .group{
   float: left;
@@ -52,7 +58,6 @@ body{
 .group1{
   background-color:pink;
   width:250px;
-  float:right;
 }
 .group2{
   background-color:lightgreen;
@@ -61,6 +66,12 @@ body{
 .group3{
   background-color:coral;
   width:190px;
+}
+
+.clearfix{
+  /* height:50px; */
+  /* background-color:rgba(255,255,0,0.5); */
+  clear:both;
 }
 .slogan{
  background-color: orange;
