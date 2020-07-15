@@ -21,15 +21,20 @@ body{
 
 .container{ 
   background-color: #ccc;
+  display:flex;
+  flex-flow:column nowrap;
+  align-items: center;
 }
 
 .header,.visual,.main,.slogan,.footer{
   width:940px;
-  margin:0 auto; 
+  
+  /* margin:0 auto;  */
+  /* margin을 안쓰고 flex box를 이용해서 가운데 정렬 해보기 */
 }
 .header{
   background-color: yellow;
-  margin-left: auto;
+  
 }
 
 .visual{
@@ -39,22 +44,14 @@ body{
 /* 메인콘텐츠 */
 .main{
   background-color:blue;
-  padding: 30px 15px;/* 설계 측면에서 충분히 고려하고 지정할것 */ 
-  height:400px;
-  /* overflow:hidden; */
   min-height:450px;
+  display:flex;
+  flex-flow:row nowrap;/* 명시적으로 nowrap 선언하는게 좋다(기본값으로 지정함) 나중에 헷갈릴 수 있으니 기본값 지정*/
+  justify-content: space-between;
+  padding:30px;
+  align-items: flex-start;
 }
 
-.clearfix::after{/* 자바스크립트에서 다룰 수 없다. 가상으로 만들어낸것이라 dom에 없기때문 */
-  content:"";/* 영역을 만들어낸것 */
-  clear:both;
-  display: block;
-}
-.group{
-  float: left;
-  margin-left: 15px;
-  margin-right:15px;
-}
 .group1{
   background-color:pink;
   width:250px;
@@ -68,19 +65,17 @@ body{
   width:190px;
 }
 
-.clearfix{
-  /* height:50px; */
-  /* background-color:rgba(255,255,0,0.5); */
-  clear:both;
-}
 .slogan{
  background-color: orange;
- /* clear:both; 
- margin-top:10px; */
+
 }
 
 .footer-bg{
-  background-color: purple
+  width:100%;
+  background-color: purple;
+  display:flex;
+  flex-flow:column nowrap;
+  align-items: center;
 }
 .footer{
   background-color:skyblue;
