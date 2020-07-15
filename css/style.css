@@ -2,7 +2,9 @@
 @import url(./normalize.css);
 @import url(//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSans-kr.css);
 /* @->엣사인이라고 읽음 */
-
+*,*::before,*::after{
+  box-sizing: border-box;
+}
 html{
   font-size:10px;
 }
@@ -15,3 +17,67 @@ body{
   font-weight: 400;
 }
 /* color 16진수 표현 0~F 16*16=256컬러 R:256표현 G:256표현 B:256표현 #RRGGBB 축약해서 세글자로 표현가능*/
+/* 레이아웃 */
+
+.container{ 
+  background-color: #ccc;
+}
+
+.header,.visual,.main,.slogan,.footer{
+  width:940px;
+  margin:0 auto; 
+}
+.header{
+  background-color: yellow;
+  margin-left: auto;
+}
+/* 메인콘텐츠 */
+.main{
+  background-color:blue;
+  padding: 30px 15px;
+  /* padding:0 15px;설계 측면에서 충분히 고려하고 지정할것 */
+  /* height:400px; */
+  overflow:hidden;
+  min-height:450px;
+}
+.visual{
+  height:120px;
+  background-color:lime
+}
+.group{
+  float: left;
+  margin-left: 15px;
+  margin-right:15px;
+}
+.group1{
+  background-color:pink;
+  width:250px;
+  float:right;
+}
+.group2{
+  background-color:lightgreen;
+  width:380px;
+}
+.group3{
+  background-color:coral;
+  width:190px;
+}
+.slogan{
+ background-color: orange;
+ /* clear:both; 
+ margin-top:10px; */
+}
+
+.footer-bg{
+  background-color: purple
+}
+.footer{
+  background-color:skyblue;
+}
+
+
+
+
+
+/* 단축키 */
+/* shift+alt ↓ :한줄 복사 */
