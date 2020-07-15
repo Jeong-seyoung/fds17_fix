@@ -1,0 +1,40 @@
+.wrapper{
+  background-color: yellow;
+  border: 5px solid blue;
+  width:50%;
+  display:flex;
+  flex-flow:row wrap;
+  justify-content: center;
+
+}
+
+.wrapper div{
+  border:1px solid red;
+  background-color: pink;
+  height:50px;
+  flex-basis:200px;
+/* border포함 width가 202인 박스를 1000px에 들어가게 하기위해 자동으로 축소시켜서 200px */
+  /*flex: 0 1 auto*/
+}
+/* flex-grow :팽창,확대시키는것  */
+ 
+.box1{ 
+  flex-grow:1 ;
+  
+}
+.box2{
+  flex-grow:2 ;
+  
+}
+.box3{
+  flex-grow:3 ;
+  order:-1
+}
+.box4{
+  flex-grow:1 ;
+  order:1;
+}
+.box5{
+  flex-grow:3 ;
+  
+}
