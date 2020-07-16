@@ -9,7 +9,7 @@ html{
   font-size:10px;
 }
 body{
-  font-size:1.6rem;/*html 10px * 1.6= 16px으로 설정*/
+  font-size:1.4rem;/*html 10px * 1.6= 16px으로 설정*/
   color:#181818;
   background-color: #fff;
   /* emmet: m~px */
@@ -17,6 +17,12 @@ body{
   font-weight: 400;
 }
 /* color 16진수 표현 0~F 16*16=256컬러 R:256표현 G:256표현 B:256표현 #RRGGBB 축약해서 세글자로 표현가능*/
+/* 링크스타일 */
+a{
+  text-decoration: none;
+  color:inherit/* 부모에서 쓰는 컬러를 상속받을거야 */
+}
+
 /* 레이아웃 */
 
 .container{ 
@@ -32,9 +38,42 @@ body{
   /* margin:0 auto;  */
   /* margin을 안쓰고 flex box를 이용해서 가운데 정렬 해보기 */
 }
+/* 헤더 */
 .header{
-  background-color: yellow;
+  background-color:#fff;
+  border-radius:0 0 15px 15px;
+  padding:0 30px 0 30px;
+  position: relative;/*  영역을 차지한다 absolute는 위로 뜨면서 레이어로 존재 : 영역을 차지하지 않음*/
+}
+/* 로고 */
+.logo{
+  position: absolute;
+  top: 45px;
+  left: 65px;
   
+}
+/* 멤버링크 */
+.member{
+  list-style: none;
+  padding-left:0;
+  margin-top: 8px;
+  margin-right:-8px;
+  margin-bottom: 8px;
+  font-size:0;
+  text-align:right;
+}
+.member li, .member a{
+  display: inline-block;
+}
+.member li{
+  font-size:1.4rem;
+}
+.member a{
+  text-transform: uppercase;
+  padding:2px 8px 2px 3px; /* 공백의 크기를 생각해서 */
+  }
+.member [aria-hidden]/* member에 aria-hidden속성을 가진 태그를 찾아라! */{
+  /* margin:0 5px; */
 }
 
 .visual{
