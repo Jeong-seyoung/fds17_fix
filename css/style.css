@@ -17,6 +17,16 @@ body{
   font-weight: 400;
 }
 /* color 16진수 표현 0~F 16*16=256컬러 R:256표현 G:256표현 B:256표현 #RRGGBB 축약해서 세글자로 표현가능*/
+/* 숨김 콘텐츠 */
+.a11y-hidden{
+  height:1px;
+  width:1px;
+  overflow:hidden;
+  position: absolute;
+  margin:-1px;
+  clip-path:polygon(0 0 , 0 0 , 0 0)/* 좌표를 전혀 바꾸지 않고 글씨를 없앨 수 있는 모던기법 */
+/*text-indent,opacity로 글씨를 안보이게 하는것은 이슈가 생겨서 비추천  */
+}
 /* 링크스타일 */
 a{
   text-decoration: none;
@@ -48,9 +58,9 @@ a{
 /* 로고 */
 .logo{
   position: absolute;
-  top: 45px;
+  top: 25px;
   left: 65px;
-  
+
 }
 /* 멤버링크 */
 .member{
@@ -75,7 +85,55 @@ a{
 .member [aria-hidden]/* member에 aria-hidden속성을 가진 태그를 찾아라! */{
   /* margin:0 5px; */
 }
+/* 메인메뉴 */
+.menu{
+  background-color: orange;
+  padding-left: 0;
+  list-style: none;
+  margin:0 0 50px;
+  padding-left:225px;
+  border-top:2px solid #000;
+  border-radius: 0 0 5px 5px;
+  /* background-image: linear-gradient(red,green); */
+  background: #f96c2f linear-gradient(/*예외상황 대비 그라디언트외 배경컬러도 추가 지정  */
+    to bottom,
+    #ef7c43 0%,
+    #f96c2f 36%,
+    #f96c2f 68%,
+    #ef7c43 100%
+    ); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
 
+
+
+}
+.menu::after{
+  content:"";
+  display:block;
+  clear:both;
+}
+.menu-item{/* .menu >  li */
+  float:left;
+}
+.btn-menu{
+  background-color:transparent;
+  color:#fff;
+  font-size:1.6rem;
+  font-weight:700;
+  border:0;
+  padding:0;
+  cursor:pointer;
+  padding:15px 20px;
+  border-left:2px solid rgba(255,255,255,0.85);
+  text-shadow:1px 0 0 #000,
+               0 1px  0 #000,
+              -1px 0 0 #000,
+               0 -1px 0 #000;
+}
+.sub-menu{
+  background-color:pink;
+  position: absolute;
+  display:none;
+}
 .visual{
   height:120px;
   background-color:lime
