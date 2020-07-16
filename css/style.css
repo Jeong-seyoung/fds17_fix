@@ -57,10 +57,7 @@ a{
 }
 /* 로고 */
 .logo{
-  position: absolute;
-  top: 25px;
-  left: 65px;
-
+  position: absolute; 
 }
 /* 멤버링크 */
 .member{
