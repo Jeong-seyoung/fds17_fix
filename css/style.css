@@ -1,7 +1,7 @@
 /* @charset "utf-8"; 최신버전에서는 오류가 뜨므로 생략한다. */
 @import url(./normalize.css);
 @import url(//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSans-kr.css);
-@import url(https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css);
+@import url(https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css);
 /* @->엣사인이라고 읽음 */
 @import url(fontello.css);
 *,*::before,*::after{
@@ -13,10 +13,13 @@ html{
 body{
   font-size:1.4rem;/*html 10px * 1.6= 16px으로 설정*/
   color:#181818;
-  background-color: #fff;
-  /* emmet: m~px */
+  background:url(./images/bg_flower.png) 
+  no-repeat 50% 0 scroll, 
+ #fff linear-gradient(to bottom,#ccc 0%,#fff 70%,#fff 100%)/* 방향,컬러와 지점*/;
+  /* 마진 emmet: m~px */
   font-family: 'Spoqa Han Sans';
   font-weight: 400;
+  
 }
 /* color 16진수 표현 0~F 16*16=256컬러 R:256표현 G:256표현 B:256표현 #RRGGBB 축약해서 세글자로 표현가능*/
 /* 숨김 콘텐츠 */
@@ -38,7 +41,6 @@ a{
 /* 레이아웃 */
 
 .container{ 
-  background-color: #ccc;
   display:flex;
   flex-flow:column nowrap;
   align-items: center;
@@ -199,10 +201,66 @@ a{
 .sub-menu6{
   display:none;
 }
-
+/* 비주얼 */
+@keyframes textAni{
+  0%{
+    font-size:12px;
+    color:rgba(0,0,0,0);
+    /* padding-top:0;
+    padding-left:0; */
+    /* 높이를 지정해놓지 않으면 margin,padding으로 위치를 바꾸는것은 문제가 생김 */
+    /* margin,padding,position으로 위치를 잡으면 reflow가 많이 발생하여 성능저하
+    모던기법 trasform이 성능면에서 좋다.(과거의 cpu사용하지 않고 gpu) */
+    transform:translate(0,0);
+  } 
+  100%{
+    font-size:24px;
+    color:rgba(0,0,0,1);
+    /* padding-top:75px;
+    padding-left:400px; */
+    transform: translate(400px,75px);
+  } 
+}
 .visual{
   height:120px;
-  background-color:lime
+  position: relative;
+}
+
+@keyframes bgAni{
+  0%{
+    opacity:1;
+  }
+  50%{
+    opacity:0.5
+  }
+  100%{opacity:0;
+  }
+}
+.visual::before, .visual::after{
+  animation:bgAni 2000ms ease-in-out infinite alternate;
+  content:"";
+  position:absolute;
+  top:0;
+  left:0;
+  width: 100%;
+  height: 100%;
+  background-repeat:no-repeat;
+}
+.visual::before{
+  background-image: url(./images/ani_flower_01.png),url(./images/ani_flower_02.png);
+  background-position: 0 -10px,670px 0 ;/* 개별 속성을 멀티로 작성 */
+}
+.visual::after{
+  background-image: url(./images/ani_flower_03.png),url(./images/ani_flower_04.png);
+  background-position: 300px 0px,800px 20px ;/* 개별 속성을 멀티로 작성 */
+  animation-delay: 1000ms;
+}
+.visual-text{
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-size:2.4rem;
+  width:500px;
+  /* width를 지정해주거나 display:인라인 해주어도 됨 */
+  animation: textAni 500ms ease-in-out forwards;
 }
 /* 메인콘텐츠 */
 .main{
