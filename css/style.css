@@ -23,7 +23,7 @@ body{
 }
 /* color 16진수 표현 0~F 16*16=256컬러 R:256표현 G:256표현 B:256표현 #RRGGBB 축약해서 세글자로 표현가능*/
 /* 숨김 콘텐츠 */
-.a11y-hidden{
+.a11y-hidden,legend{
   height:1px;
   width:1px;
   overflow:hidden;
@@ -31,6 +31,12 @@ body{
   margin:-1px;
   clip-path:polygon(0 0 , 0 0 , 0 0)/* 좌표를 전혀 바꾸지 않고 글씨를 없앨 수 있는 모던기법 */
 /*text-indent,opacity로 글씨를 안보이게 하는것은 이슈가 생겨서 비추천  */
+}
+.clearfix::after{
+  content:"";
+  clear:both;
+  display: block;
+
 }
 /* 링크스타일 */
 a{
@@ -285,7 +291,94 @@ a{
   background-color:coral;
   width:190px;
 }
+/* 로그인 */
+.login{
+  background-color:#db5629;
+  background-image:radial-gradient(circle at right top, #ef962f, #db5629);
+  border-radius:5px;
+  box-shadow: 5px 5px 0 0 #ccc;
+  padding:10px;
+}
+.login-heading{
+  margin-top:0;
+  margin-bottom:10px;
+  color:#ff0;
+  font-size:1.5rem;
+  font-weight: 700;
+  padding-left:10px;
+}
+.login-form{
+  background-color:#fff;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  padding:10px 10px 0 10px;
+}
+.login-form fieldset{
+  margin:0;/* reset css*/
+  padding:0;/* reset css*/
+  border:0;/* reset css*/
+  position: relative;
+  padding-bottom: 5px;
+  border-bottom:1px solid #aaa;
+}
+.login-form div{
+  width:150px;
+  margin-bottom:5px;
+}
 
+.login-form label{
+  display:inline-block;
+  width:55px; 
+}
+.login-form input{
+  width:90px;
+  height:24px;
+  border:1px solid #aaa;
+  padding:1px 1px 1px 0.5em;/* 사용성을 위해 입력칸 여백줌 */
+}
+.btn-login{
+  width: 50px;
+  height: 52px;
+  border-radius: 3px;
+  border:0;
+  padding:5px;
+  color:#fff;
+  cursor:pointer;/* 나만의 reset css 만들기 */
+  background-color:#db5629;
+  top:0;
+  right:0;
+  font-size:1.3rem;
+  position: absolute;
+}
+
+.member-only{
+  background-color:#fff;
+  margin:0;
+  padding: 10px;
+  list-style:none;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+.member-only li:first-child{
+  float:left;
+}
+.member-only li:last-child{
+  float:right;
+}
+.member-only a{
+  padding-top:5px;
+  padding-bottom:5px;
+  text-decoration: none;
+}
+.member-only a::before{
+  content: '\e803';
+  font-family:'fontello';
+  display:inline-block;
+  margin-right: .2em;
+  color:#db5629;
+}
+
+/* 슬로건 */
 .slogan{
  background-color: orange;
 
