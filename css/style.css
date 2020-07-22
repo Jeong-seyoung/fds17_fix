@@ -123,7 +123,7 @@ a{
 .menu-item{/* .menu >  li */
   float:left;
   position: relative; 
-  /* ->sub-menu의 기준이되서 sub-menu에 width를 추가로 줘야함*/ */
+  /* ->sub-menu의 기준이되서 sub-menu에 width를 추가로 줘야함*/ 
 
 }
 .btn-menu{
@@ -551,72 +551,101 @@ float:right;
   color:#fff;
   font-size:1.3rem;
   height:24px;
-  padding:0 10px;/* 버튼은 agent style로 padding을 가진다 */
+  /* padding:0 10px; */
+  /* 버튼은 agent style로 padding을 가진다 */
   border:1px solid #aaa;
   border-radius:3px;
 }
 /* 게시판 */
 .board{
-  position:relative;
-  background-color:lightgoldenrodyellow;
+  position: relative;
+  margin-top:30px;
+  border:1px solid transparent;
 }
 .notice{
-  background-color:yellow;
+  position: absolute;
+  /* background-color:yellow; */
 }
 .notice-heading,.pds-heading{
-  background-color:blue;
   margin:0;
-  padding:0
-}
-.tab{
-  display: inline-block;
-  padding:10px;
-  border-color:#999;
-  border-bottom: 1px solid #999;
-  background:linear-gradient(180deg,#ccc,#fff)
+  padding:0;
+  font-size:1.4rem;
 }
 
+.tab{
+  padding:10px;
+  display: inline-block;
+  border-color:#999;
+  border-bottom: 1px solid #999;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  background:linear-gradient(180deg,#ccc,#fff)
+}
+.notice .tab{
+  width:80px;
+  text-align:center;
+}
+.pds .tab{
+  margin-left:80px;
+  padding:10px;
+}
 .notice-list,.pds-list{
-  background-color:green;
   padding:0;
   margin:0;
 }
 .notice-list li,.pds-list li{
   margin:0;
-  padding:0;
-  background-color:pink;
+  background-color:#fff;
   list-style:none;
-  height:30px;
+  padding:5px;
+
 }
 .notice-list li a,.pds-list li a{
-background-color:#eee;
+overflow:hidden;
+width:290px;
+white-space: nowrap;
+display:inline-block;
+vertical-align: text-top;
+}
+.notice-list li a::before,.pds-list li a::before{
+  content: '\f192';
+  display: inline-block;
+  font-family: 'fontello';
+  margin:0.3rem
 }
 .notice-list li time,.pds-list li time{
-  background-color:#eee;
+ display: inline-block;
+ vertical-align: baseline;
+
 }
 .notice-more{
   position: absolute;
-  border:1px solid red;
+  top:0;
+  right:0;
+  margin-top:10px;
+  margin-right:10px;
 }
 .pds{
-  position: absolute;
   top:0;
   bottom:0;
-  z-index: -10;
+  z-index: 1110;
+  position: relative;
+  
 }
 .pds-list{
   display:none;
 }
 .pds .tab{
+  
   border-color:#999;
-  border-bottom: 1px solid #999;
+  border: 1px solid #999;
   background:linear-gradient(180deg,#ccc,#fff)
 }
 .tab-act{
   display: block;
 }
-.tab-act .tab{
-  background-color:#fff;
+.tab-act  .tab {
+  background:#fff;
   border:1px solid red;
   border-bottom:0;
   border-top-left-radius:6px;
