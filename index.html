@@ -156,7 +156,22 @@
             </dl>
           </section>
         </div>
-        <div class="group group2">group2</div>
+        <div class="group group2">
+          <h2 class="a11y-hidden">검색</h2>
+        <!-- <div> form태그를 div로 묶어줄수도 있으며 큰프로젝트에서 디자인수정에 용이-->
+         <form class="search-form" action="http://formspree.io/mwkrwgrg" method="POST">
+          <fieldset><!-- flex 크롬 버그 해결법->container박스 div 로 자식요소 감싸기->div role="group" -->
+            <legend class="a11y-hidden">검색 폼</legend>
+            <div role="group"><!-- ctrl+shift-p 명령에 emmet:개별줄 래핑 검색 후 래핑할 태그입력 -->
+              <label for="search" aria-label="검색어">자료검색</label>
+              <input id="search" type="search" name="search" placeholder="검색어를 입력하세요" required>
+              <!-- <input class="btn-search" type="submit" value="검색"> -->
+              <button class="btn-search">검색</button>
+          </div>
+          </fieldset>
+         </form>
+        <!--</div> --> 
+        </div>
         <div class="group group3">group3</div>
       </main>
       <article class="slogan">slogan</article>
