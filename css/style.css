@@ -158,10 +158,13 @@ a{
   padding-left:0;
   list-style: none;
   white-space:nowrap; 
+<<<<<<< HEAD
   display:none;
 }
 .menu-act .sub-menu{
   display:block;
+=======
+>>>>>>> e4d6d9c8900b8baf90cd5b71a389b7f24d76f1e4
 }
 .sub-menu li,.sub-menu a{
   display:inline-block;
@@ -194,7 +197,28 @@ a{
 .sub-menu6{
   right:0;
 }
+<<<<<<< HEAD
 
+=======
+.sub-menu1{
+  display:block;
+}
+.sub-menu2{
+  display:none;
+}
+.sub-menu3{
+  display:none;
+}
+.sub-menu4{
+  display:none;
+}
+.sub-menu5{
+  display:none;
+}
+.sub-menu6{
+  display:none;
+}
+>>>>>>> e4d6d9c8900b8baf90cd5b71a389b7f24d76f1e4
 /* 비주얼 */
 @keyframes textAni{
   0%{
@@ -742,6 +766,7 @@ display: block;
 }
 .tab-act .notice-more{
   display:block
+<<<<<<< HEAD
 } */
 /* .board ul{padding-top:40px;} */
 /* ----------------------------------- */
@@ -800,6 +825,12 @@ position:relative;
   padding:8px;
   /* background-color:lightgray; */
 }
+=======
+} */ */
+/* ----------------------------------- */
+/* .board ul{padding-top:40px;} */
+
+>>>>>>> e4d6d9c8900b8baf90cd5b71a389b7f24d76f1e4
 /* 슬로건 */
 .slogan{
  background-color: orange;
