@@ -158,6 +158,10 @@ a{
   padding-left:0;
   list-style: none;
   white-space:nowrap; 
+  display:none;
+}
+.menu-act .sub-menu{
+  display:block;
 }
 .sub-menu li,.sub-menu a{
   display:inline-block;
@@ -190,24 +194,7 @@ a{
 .sub-menu6{
   right:0;
 }
-.sub-menu1{
-  display:block;
-}
-.sub-menu2{
-  display:none;
-}
-.sub-menu3{
-  display:none;
-}
-.sub-menu4{
-  display:none;
-}
-.sub-menu5{
-  display:none;
-}
-.sub-menu6{
-  display:none;
-}
+
 /* 비주얼 */
 @keyframes textAni{
   0%{
