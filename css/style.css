@@ -558,18 +558,23 @@ float:right;
 }
 /* 공지사항 및 자료실 */
 .board {
-  background-color: yellow;
+  /* background-color: yellow; */
+  padding-top:45px;
   margin-top: 20px;
   position: relative;
-  min-height: 180px;
 }
 .notice-heading,
 .pds-heading {
-  background-color: pink;
-  float: left;
+  /* background-color: pink; */
   margin: 0;
+  position: absolute;
+  top:0;
+  left:0;
   font-size: 1.4rem;
   font-weight: 400;
+}
+.pds-heading{
+  left:73px;
 }
 .tab {
   display: block;
@@ -599,18 +604,15 @@ float:right;
 
 .notice-list,
 .pds-list {
-  background-color: silver;
+  /* background-color: silver; */
   list-style: none;
   margin: 0;
   padding-left: 0;
-  position: absolute;/* 자식요소만큼(콘텐츠)크기를 가짐 */
-  top: 45px;
-  left: 0;
-  width: 100%;
+  min-height: 130px;
 }
 .notice-list li,
 .pds-list li {
-  background-color: orange;
+  /* background-color: orange; */
   margin-bottom: 10px;
 }
 .notice-list li::after,
@@ -621,7 +623,7 @@ float:right;
 }
 .notice-list a,
 .pds-list a {
-  background-color: skyblue;
+  /* background-color: skyblue; */
   float: left;
   width: 300px;
   text-overflow: ellipsis;
@@ -637,7 +639,7 @@ float:right;
 }
 .notice-list time,
 .pds-list time {
-  background-color: violet;
+  /* background-color: violet; */
   float: right;
 }
 .notice-more,
