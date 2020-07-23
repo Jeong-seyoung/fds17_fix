@@ -1,0 +1,825 @@
+/* @charset "utf-8"; 최신버전에서는 오류가 뜨므로 생략한다. */
+@import url(./normalize.css);
+@import url(//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSans-kr.css);
+@import url(https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css);
+/* @->엣사인이라고 읽음 */
+@import url(fontello.css);
+*,*::before,*::after{
+  box-sizing: border-box;
+}
+html{
+  font-size:10px;
+}
+body{
+  font-size:1.4rem;/*html 10px * 1.6= 16px으로 설정*/
+  color:#181818;
+  background:url(./images/bg_flower.png) 
+  no-repeat 50% 0 scroll, 
+ #fff linear-gradient(to bottom,#ccc 0%,#fff 70%,#fff 100%)/* 방향,컬러와 지점*/;
+  /* 마진 emmet: m~px */
+  font-family: 'Spoqa Han Sans';
+  font-weight: 400;
+  
+}
+/* color 16진수 표현 0~F 16*16=256컬러 R:256표현 G:256표현 B:256표현 #RRGGBB 축약해서 세글자로 표현가능*/
+/* 숨김 콘텐츠 */
+.a11y-hidden,legend{
+  height:1px;
+  width:1px;
+  overflow:hidden;
+  position: absolute;
+  margin:-1px;
+  clip-path:polygon(0 0 , 0 0 , 0 0)/* 좌표를 전혀 바꾸지 않고 글씨를 없앨 수 있는 모던기법 */
+/*text-indent,opacity로 글씨를 안보이게 하는것은 이슈가 생겨서 비추천  */
+}
+.clearfix::after{
+  content:"";
+  clear:both;
+  display: block;
+
+}
+/* 링크스타일 */
+a{
+  text-decoration: none;
+  color:inherit/* 부모에서 쓰는 컬러를 상속받을거야 */
+}
+
+/* 레이아웃 */
+
+.container{ 
+  /* display:flex;
+  flex-flow:column nowrap;
+  align-items: center; */
+}
+
+.header,.visual,.main,.slogan,.footer{
+  width:940px;
+  margin-left:auto;
+  margin-right:auto; 
+  /* margin:0 auto;  */
+  /* margin을 안쓰고 flex box를 이용해서 가운데 정렬 해보기 */
+}
+/* 헤더 */
+.header{
+  background-color:#fff;
+  border-radius:0 0 15px 15px;
+  padding:1px 30px;
+  position: relative;/*  영역을 차지한다 absolute는 위로 뜨면서 레이어로 존재 : 영역을 차지하지 않음*/
+}
+/* 로고 */
+.logo{
+  position: absolute;
+  top:26px;
+  left:65px; 
+}
+/* 멤버링크 */
+.member{
+  list-style: none;
+  padding-left:0;
+  margin-top: 8px;
+  margin-right:-8px;
+  margin-bottom: 8px;
+  font-size:0;
+  text-align:right;
+}
+.member li, .member a{
+  display: inline-block;
+}
+.member li{
+  font-size:1.4rem;
+}
+.member a{
+  text-transform: uppercase;
+  padding:2px 8px 2px 3px; /* 공백의 크기를 생각해서 */
+  }
+.member [aria-hidden]{
+/* member에 aria-hidden속성을 가진 태그를 찾아라! */
+  /* margin:0 5px; */
+}
+/* 메인메뉴 */
+.menu{
+  background-color: orange;
+  padding-left: 0;
+  list-style: none;
+  margin:0 0 35px;
+  padding-left:225px;
+  border-top:2px solid #000;
+  border-radius: 0 0 5px 5px;
+  /* background-image: linear-gradient(red,green); */
+  background: #f96c2f linear-gradient(/*예외상황 대비 그라디언트외 배경컬러도 추가 지정  */
+    to bottom,
+    #ef7c43 0%,
+    #f96c2f 36%,
+    #f96c2f 68%,
+    #ef7c43 100%
+    ); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    height: 50px;
+}
+.menu::after{
+  content:"";
+  display:block;
+  clear:both;
+}
+.menu-item{/* .menu >  li */
+  float:left;
+  position: relative; 
+  /* ->sub-menu의 기준이되서 sub-menu에 width를 추가로 줘야함*/ 
+
+}
+.btn-menu{
+  line-height: 48px;/*  */
+  background-color:transparent;
+  color:#fff;
+  font-size:1.6rem;/* html root 16px */
+  font-weight:700;
+  border:0;
+  cursor:pointer;
+  padding:0 20px;
+  border-left:2px solid rgba(255,255,255,0.85);
+  text-shadow:1px 0 0 #000,
+               0 1px  0 #000,
+              -1px 0 0 #000,
+               0 -1px 0 #000;
+}
+.menu-act .btn-menu{
+  color:#ff0;
+}
+.menu-act .btn-menu::after{
+  content:"";
+  display:block;
+  background-color:blue;
+  height:2px;
+  /* position: relative;
+  top:2px; */
+}
+.sub-menu{
+  position: absolute;
+  margin:0;
+  padding-left:0;
+  list-style: none;
+  white-space:nowrap; 
+  display:none;
+}
+.menu-act .sub-menu{
+  display:block;
+}
+.sub-menu li,.sub-menu a{
+  display:inline-block;
+}
+.sub-menu a{
+  padding:8px 0;
+  margin-right:1em;
+}
+.sub-menu a::before{
+  content: '\f192';/* 필수 */
+  font-family: 'fontello';/* 필수 */
+  font-weight: normal;
+  display: inline-block;
+  width: 1em;
+  margin-right: .2em;
+  margin-left: .2em;
+}
+.sub-menu a:hover::before,
+.sub-menu a:focus::before{
+  content: '\e800';
+}
+
+.sub-menu1,
+.sub-menu2,
+.sub-menu3{
+  left:0;
+}
+.sub-menu4,
+.sub-menu5,
+.sub-menu6{
+  right:0;
+}
+
+/* 비주얼 */
+@keyframes textAni{
+  0%{
+    font-size:12px;
+    color:rgba(0,0,0,0);
+    /* padding-top:0;
+    padding-left:0; */
+    /* 높이를 지정해놓지 않으면 margin,padding으로 위치를 바꾸는것은 문제가 생김 */
+    /* margin,padding,position으로 위치를 잡으면 reflow가 많이 발생하여 성능저하
+    모던기법 trasform이 성능면에서 좋다.(과거의 cpu사용하지 않고 gpu) */
+    transform:translate(0,0);
+  } 
+  100%{
+    font-size:24px;
+    color:rgba(0,0,0,1);
+    /* padding-top:75px;
+    padding-left:400px; */
+    transform: translate(400px,75px);
+  } 
+}
+.visual{
+  height:120px;
+  position: relative;
+}
+
+@keyframes bgAni{
+  0%{
+    opacity:1;
+  }
+  50%{
+    opacity:0.5
+  }
+  100%{opacity:0;
+  }
+}
+.visual::before, .visual::after{
+  animation:bgAni 2000ms ease-in-out infinite alternate;
+  content:"";
+  position:absolute;
+  top:0;
+  left:0;
+  width: 100%;
+  height: 100%;
+  background-repeat:no-repeat;
+}
+.visual::before{
+  background-image: url(./images/ani_flower_01.png),url(./images/ani_flower_02.png);
+  background-position: 0 -10px,670px 0 ;/* 개별 속성을 멀티로 작성 */
+}
+.visual::after{
+  background-image: url(./images/ani_flower_03.png),url(./images/ani_flower_04.png);
+  background-position: 300px 0px,800px 20px ;/* 개별 속성을 멀티로 작성 */
+  animation-delay: 1000ms;
+}
+.visual-text{
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-size:2.4rem;
+  width:500px;
+  /* width를 지정해주거나 display:인라인 해주어도 됨 */
+  animation: textAni 500ms ease-in-out forwards;
+}
+/* 메인콘텐츠 */
+.main{
+  background-color:#fff;
+  border-radius: 15px 15px 0 0;
+  min-height:450px;
+  display:flex;
+  flex-flow:row nowrap;/* 명시적으로 nowrap 선언하는게 좋다(기본값으로 지정함) 나중에 헷갈릴 수 있으니 기본값 지정*/
+  justify-content: space-between;
+  padding:30px;
+  align-items: flex-start;
+}
+
+.group1{
+  width:250px;
+}
+.group2{
+  width:380px;
+}
+.group3{
+  width:190px;
+}
+/* 로그인 */
+.login{
+  background-color:#db5629;
+  background-image:radial-gradient(circle at right top, #ef962f, #db5629);
+  border-radius:5px;
+  box-shadow: 5px 5px 0 0 #ccc;
+  padding:10px;
+  width:calc(100% - 5px);
+}
+.login-heading{
+  margin-top:0;
+  margin-bottom:10px;
+  color:#ff0;
+  font-size:1.5rem;
+  font-weight: 700;
+  padding-left:10px;
+}
+.login-form{
+  background-color:#fff;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  padding:10px 10px 0 10px;
+}
+.login-form fieldset{
+  margin:0;/* reset css*/
+  padding:0;/* reset css*/
+  border:0;/* reset css*/
+  position: relative;
+  padding-bottom: 5px;
+  border-bottom:1px solid #aaa;
+}
+.login-form div{
+  width:150px;
+  margin-bottom:5px;
+}
+
+.login-form label{
+  display:inline-block;
+  width:55px; 
+}
+.login-form input{
+  width:90px;
+  height:24px;
+  border:1px solid #aaa;
+  padding:1px 1px 1px 0.5em;/* 사용성을 위해 입력칸 여백줌 */
+}
+.btn-login{
+  width: 50px;
+  height: 52px;
+  border-radius: 3px;
+  border:0;
+  padding:5px;
+  color:#fff;
+  cursor:pointer;/* 나만의 reset css 만들기 */
+  background-color:#db5629;
+  top:0;
+  right:0;
+  font-size:1.3rem;
+  position: absolute;
+}
+
+.member-only{
+  background-color:#fff;
+  margin:0;
+  padding: 10px;
+  list-style:none;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+.member-only li:first-child{
+  float:left;
+}
+.member-only li:last-child{
+  float:right;
+}
+.member-only a{
+  padding-top:5px;
+  padding-bottom:5px;
+  text-decoration: none;
+}
+.member-only a::before{
+  content: '\e803';
+  font-family:'fontello';
+  display:inline-block;
+  margin-right: .2em;
+  color:#db5629;
+}
+/* 유효성 검사 배너 링크 */
+.validation-list{
+  list-style: none;
+  margin-top:25px;
+  margin-bottom:0;
+  padding-left: 0;
+}
+.validation-list a{
+  display:block;
+  padding:8px 10px 8px 45px;/* 가급적 높이를 지정하지 않는게 유연함 */
+  margin-top:10px;
+  border-radius:30px;
+  border:1px solid #aaa;
+  background-color: #ccc;
+  background-image:url(./images/validation_icon.png),linear-gradient(180deg,#ccc,#eee);
+  background-repeat: no-repeat,repeat;
+  background-position:15px 50%,0 0;
+}
+
+.validation-list a:hover{
+  color:#f00;
+}
+.term{
+  background: #ccc linear-gradient(180deg,#ccc,#eee);
+  border:1px solid #aaa;
+  border-radius:5px;
+  padding:15px;
+  margin-top:25px;
+}
+.term-heading{
+  margin:0;
+  font-size:1.6rem;
+  font-weight: 700;
+}
+.term-list{
+  margin:0;
+  margin-top:10px;
+  margin-bottom:10px;
+}
+.term-list > div{
+  margin-top:10px;
+}
+.term-list >div::after{
+  content:"";
+  display:block;
+  clear:both;
+}
+.term-list-subject,.term-list-brief{
+  width:145px;
+  float:right;
+}
+.term-list-subject{
+  color:#296897;
+  
+}
+.term-list-thumbnail img{
+  vertical-align: middle;
+}
+.term-list-thumbnail{
+margin-left:0;
+float:left;
+}
+.term-list-brief{
+margin-left:0;
+margin-top:5px;
+}
+.even .term-list-subject,.even .term-list-brief{
+  float:left;
+  
+}
+.even .term-list-thumbnail{
+  float:right;
+}
+.even .term-list-brieft{
+  float:left;
+}
+/* w3c 배너
+.web-term{
+  border-radius: 10px;
+  margin-top:20px;
+  border:1px solid #aaa;
+background-image: linear-gradient(180deg,#ccc,#eee);
+}
+.web-term dd,dl,dt{
+  padding:0;
+  margin:0;
+  list-style: none;
+}
+.term-heading{
+
+}
+.term-list{
+padding:10px;
+}
+.term-odd{
+
+}
+.list-subject{
+color:#296897;
+background-color:red;
+float:right;
+width:150px;
+margin-bottom:10px;
+}
+.term-list-thumbnail img{
+  
+}
+.term-list-thumbnail{
+background-color:yellow;
+float:left;
+}
+
+.term-list-brief{
+background-color:pink;
+width:150px;
+float:right;
+} */
+
+/* group2 */
+.search-form{
+  border:1px solid #aaa;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+  border-bottom:0;/* border-bottom-color:#fff */
+  padding:15px 25px 10px;
+  background:#ccc linear-gradient(180deg,#ccc,#fff);
+  
+}
+.search-form fieldset{
+  border:0;
+  margin:0;
+  padding:0;
+  background-color:yellow;
+  /* display: -webkit-box; */
+}
+.search-form legend{
+
+} 
+.search-form div[role="group"]{
+  display:flex;
+  flex-flow:row nowrap;
+  justify-content: center;
+  align-items: center;
+
+}
+.search-form label{
+  line-height:25px;
+}
+.search-form label::before{
+  content: '\e802'; 
+  display:inline-block;
+  margin-right:.2em;
+  font-family: 'fontello';
+}
+/* 아이디로 선택자를 사용하는 경우 구성점수가 높아서 유지보수가 까다로움 => 속성선택자를 사용함*/
+.search-form input[name="search"]{
+  border:1px solid #aaa;
+  padding:1px 1px 1px 5px;
+  height:24px;
+  flex-grow:1;
+  border-radius:3px;
+  margin-left:5px;
+  margin-right:5px;
+  width:200px;
+  /* text-indent: 10px; */
+}
+.search-form label,.btn-search{
+  white-space: nowrap;
+}
+.btn-search{
+  background-color:#222;
+  color:#fff;
+  font-size:1.3rem;
+  height:24px;
+  /* padding:0 10px; */
+  /* 버튼은 agent style로 padding을 가진다 */
+  border:1px solid #aaa;
+  border-radius:3px;
+}
+/* 공지사항 및 자료실 */
+.board {
+  /* background-color: yellow; */
+  padding-top:45px;
+  margin-top: 20px;
+  position: relative;
+}
+.notice-heading,
+.pds-heading {
+  /* background-color: pink; */
+  margin: 0;
+  position: absolute;
+  top:0;
+  left:0;
+  font-size: 1.4rem;
+  font-weight: 400;
+}
+.pds-heading{
+  left:73px;
+}
+.tab {
+  display: block;
+  color: #666;
+  border: 1px solid #aaa;
+  border-radius: 5px 5px 0 0;
+  padding: 5px 10px;
+  background: #ccc linear-gradient(180deg, #ccc, #eee);
+}
+.tab-act .tab {
+  color: #db5629;
+  border-color: #db5629 #db5629 #fff #db5629;
+  background: #fff;
+}
+.notice-list,
+.pds-list,
+.notice-more,
+.pds-more {
+  display: none;/* 구성점수를 높혀서 css속성을 추가하지 않을 거라면 css 속성에 !important를 넣어 최우선으로 처리해라 */
+}
+.tab-act .notice-list,
+.tab-act .pds-list,
+.tab-act .notice-more,
+.tab-act .pds-more {
+  display: block;
+}
+
+.notice-list,
+.pds-list {
+  /* background-color: silver; */
+  list-style: none;
+  margin: 0;
+  padding-left: 0;
+  min-height: 130px;
+}
+.notice-list li,
+.pds-list li {
+  /* background-color: orange; */
+  margin-bottom: 10px;
+}
+.notice-list li::after,
+.pds-list li::after {
+  content: "";
+  display: block;
+  clear: both;
+}
+.notice-list a,
+.pds-list a {
+  /* background-color: skyblue; */
+  float: left;
+  width: 300px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+.notice-list a::before,
+.pds-list a::before {
+  content: '\f192';
+  font-family: 'fontello';
+  display: inline-block;
+  margin-right: .2em;
+}
+.notice-list time,
+.pds-list time {
+  /* background-color: violet; */
+  float: right;
+}
+.notice-more,
+.pds-more {
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  padding: 8px;
+}
+.icon-plus::before {
+  color: hsla(110, 70%, 50%, 1);
+}/* ----------------------------------- */
+
+
+/* 게시판 normal-flow*/
+/* .board ul,li,h2{
+  list-style: none;
+  padding:0;
+  margin:0;
+  font-size:1.4rem;
+}
+.board{
+  margin-top:30px;
+  position: relative;
+}
+.notice-heading,.pds-heading{
+  position:absolute;
+  top:0;
+  left:0;
+  text-align: center;
+  font-weight: 400;
+}
+.notice-heading a,.pds-heading a{
+  padding: 8px;
+  display: inline-block;
+}
+
+.notice-heading a{
+  width:80px;
+}
+.pds-heading{
+  margin-left:80px;
+}
+.board ul{
+  padding-top:45px;
+  padding-left:5px;
+}
+.notice-list{
+  display:none;
+}
+.pds-list{
+  display:none;
+}
+.notice-list li,.pds-list li{
+  margin-bottom:10px;
+}
+.notice-list li a::before,.pds-list li a::before{
+  content: '\f192'; 
+  display: inline-block;
+  margin:.2rem;
+  font-family: 'fontello'; 
+}
+.notice-list li a,.pds-list li a{
+  width:292px;
+  display: inline-block;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow:ellipsis;
+  vertical-align: text-top;
+  padding-top:3px;
+  line-height: 1;
+}
+
+.notice-list li time,.pds-list li time{
+  vertical-align:text-top;
+  line-height:1;
+  display: inline-block;
+  padding-top:3px;
+  padding-left:3px;
+}
+
+.notice-more{
+  position: absolute;
+  top:0;
+  right:0;
+  margin-top:5px;
+  margin-right:5px;
+  padding:5px;
+  display:none;
+}
+.board .icon-plus::before{
+  color:green;
+}
+
+/* tab-act일때 */
+/* .tab-act ul{
+display: block;
+
+}
+.tab{
+  border:1px solid #ccc;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+  background:linear-gradient(180deg,#ccc,#fff)
+}
+.tab-act .tab{
+  border:1px solid red;
+  border-bottom:0;
+  background:#fff;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+  
+}
+.tab-act .notice-more{
+  display:block
+} */
+/* .board ul{padding-top:40px;} */
+/* ----------------------------------- */
+
+/* 새소식 */
+.news{
+margin-top:20px;
+position:relative;
+}
+.news::before{
+  content: "";
+  position: absolute;
+  top:30px;
+  left:0;
+  width:80%;
+  height:1px;
+  background:#ccc linear-gradient(to right,#aaa,#fff);
+
+}
+.news-heading{
+  margin:0;
+  padding:0;
+  font-size:1.5rem;
+  font-weight: 700;
+  color:#db5629;
+}
+
+.news-item{
+  margin-top:30px;
+  padding-left: 130px;
+  position: relative;
+}
+.news-item-subject{
+  margin:0;
+  font-size: 1.4rem;
+}
+.news-item-brief{
+  margin:10px 0;
+  line-height:1.5;
+}
+.news-item-thumbnail{
+  margin:0;
+  position: absolute;
+  top:3px;
+  left:0;
+  text-align: center;
+}
+.news-item-thumbnail img{
+  margin-bottom:15px;
+  box-shadow: 0 15px 20px 5px #ccc;
+}
+.news-more{
+  position: absolute;
+  top:-8px;
+  right:-8px;
+  padding:8px;
+  /* background-color:lightgray; */
+}
+/* 슬로건 */
+.slogan{
+ background-color: orange;
+
+}
+
+.footer-bg{
+  width:100%;
+  background-color: purple;
+  display:flex;
+  flex-flow:column nowrap;
+  align-items: center;
+}
+.footer{
+  background-color:skyblue;
+}
+
+
+
+
+
+/* 단축키 */
+/* shift+alt ↓ :한줄 복사 */
