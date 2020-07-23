@@ -7,6 +7,8 @@
   <!--반응형작업에 필요하므로 주석처리해줬음 -->
   <title>웹카페-HTML5,CSS3,웹표준,웹접근성</title>
   <link rel="stylesheet" href="./css/style.css"/> <!-- type="tex/css"생략 -->
+  <script src="./js/jquery.min.js" defer></script>
+  <script src="./js/menu-tab.js" defer></script>
 </head>
 <body>
     <div class="container">
@@ -167,7 +169,7 @@
               <input id="search" type="search" name="search" placeholder="검색어를 입력하세요" required>
               <!-- <input class="btn-search" type="submit" value="검색"> -->
               <button class="btn-search">검색</button>
-          </div>
+            </div>
           </fieldset>
          </form>
         <!--</div> --> 
@@ -229,11 +231,24 @@
             </ul>
             <a href="#" class="notice-more icon-plus" aria-labelledby="pdsHeading">더보기</a>
             <!-- a.notice-more.icon-plus 더보기 아이콘 추가 클래스-->
-
           </section>
-          
         </div>
-        </div>
+        <section class="news">
+          <h2 class="news-heading" id="newsHeading">새소식</h2>
+          <article class="news-item">
+            <h3 class="news-item-subject">W3C 사이트가 리뉴얼 되었습니다.</h3>
+            <time class="news-item-date" datetime="2020-07-23T16:20:19">2020.07.23</time>
+            <p class="news-item-brief">
+
+            </p>
+            <figure class="news-item-thumbnail">
+              <img src="./images/news.gif" alt="새로운 표준인 HTML5를 발표하면서 새롭게 리뉴얼 된 W3C 사이트">
+              <figcaption>W3C 리뉴얼</figcaption>
+            </figure>
+          </article>
+          <a href="#" class="news-more icon-plus" aria-labelledby="newsHeading">더보기</a>
+        </section>
+      </div>
         <div class="group group3">group3</div>
       </main>
       <article class="slogan">slogan</article>
