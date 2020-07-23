@@ -556,8 +556,104 @@ float:right;
   border:1px solid #aaa;
   border-radius:3px;
 }
-/* 게시판 */
-.board ul,li,h2{
+/* 공지사항 및 자료실 */
+.board {
+  background-color: yellow;
+  margin-top: 20px;
+  position: relative;
+  min-height: 180px;
+}
+.notice-heading,
+.pds-heading {
+  background-color: pink;
+  float: left;
+  margin: 0;
+  font-size: 1.4rem;
+  font-weight: 400;
+}
+.tab {
+  display: block;
+  color: #666;
+  border: 1px solid #aaa;
+  border-radius: 5px 5px 0 0;
+  padding: 5px 10px;
+  background: #ccc linear-gradient(180deg, #ccc, #eee);
+}
+.tab-act .tab {
+  color: #db5629;
+  border-color: #db5629 #db5629 #fff #db5629;
+  background: #fff;
+}
+.notice-list,
+.pds-list,
+.notice-more,
+.pds-more {
+  display: none;/* 구성점수를 높혀서 css속성을 추가하지 않을 거라면 css 속성에 !important를 넣어 최우선으로 처리해라 */
+}
+.tab-act .notice-list,
+.tab-act .pds-list,
+.tab-act .notice-more,
+.tab-act .pds-more {
+  display: block;
+}
+
+.notice-list,
+.pds-list {
+  background-color: silver;
+  list-style: none;
+  margin: 0;
+  padding-left: 0;
+  position: absolute;/* 자식요소만큼(콘텐츠)크기를 가짐 */
+  top: 45px;
+  left: 0;
+  width: 100%;
+}
+.notice-list li,
+.pds-list li {
+  background-color: orange;
+  margin-bottom: 10px;
+}
+.notice-list li::after,
+.pds-list li::after {
+  content: "";
+  display: block;
+  clear: both;
+}
+.notice-list a,
+.pds-list a {
+  background-color: skyblue;
+  float: left;
+  width: 300px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+.notice-list a::before,
+.pds-list a::before {
+  content: '\f192';
+  font-family: 'fontello';
+  display: inline-block;
+  margin-right: .2em;
+}
+.notice-list time,
+.pds-list time {
+  background-color: violet;
+  float: right;
+}
+.notice-more,
+.pds-more {
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  padding: 8px;
+}
+.icon-plus::before {
+  color: hsla(110, 70%, 50%, 1);
+}/* ----------------------------------- */
+
+
+/* 게시판 normal-flow*/
+/* .board ul,li,h2{
   list-style: none;
   padding:0;
   margin:0;
@@ -637,7 +733,7 @@ float:right;
 }
 
 /* tab-act일때 */
-.tab-act ul{
+/* .tab-act ul{
 display: block;
 
 }
@@ -657,8 +753,8 @@ display: block;
 }
 .tab-act .notice-more{
   display:block
-}
-
+} */ */
+/* ----------------------------------- */
 /* .board ul{padding-top:40px;} */
 
 /* 슬로건 */
