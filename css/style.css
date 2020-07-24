@@ -843,10 +843,10 @@ position:relative;
   border-bottom:1px solid #aaa;
   position: relative;
 }
-.event-heading,.related-heading{
+.event-heading,.related-heading,.favorite-heading{
   font-size:1.6rem;
 }
-.event-heading span,.related-heading span{
+.event-heading span,.related-heading span,.favorite-heading span{
   color:#db5629;
   margin:0;
 }
@@ -924,6 +924,132 @@ position:relative;
 .related-list:hover{
   height:147px;
   padding:10px 0;
+}
+/* 인기 사이트 */
+.group3 .gradient-box:nth-child(2){
+  margin-top:20px;
+}
+.favorite{
+  position: relative;
+}
+.favorite-list{
+  margin:10px 0 0 0 ;
+  /* background-color:yellow; */
+  padding-left:0;
+  list-style: none;;
+}
+
+/* count-reset,increment 함수 이용해서 간단히 코딩하기 */
+.favorite-list li{
+  /*margin-top:5px;
+  position: relative;
+  */
+  /* 이런 레이아웃에는 position:absolute나 float대신
+  flex를 이용해서 만드는게 젤 편함 */
+  counter-increment: number;
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  margin-top:5px;
+}
+.favorite-list li::before{
+  content:counter(number);/* li 순서를 count해서 콘텐트에 넣어줌*/
+  display: inline-block;
+  padding: 2px 5px;
+  color: #fff;
+  background-color: #aaa;
+  border-radius:2px;
+  margin-right:5px;
+  font-size:1.3rem;
+}
+/* 
+.favorite-list li{
+  background-color: pink;
+  margin-bottom:10px;
+  border:1px solid red;
+
+  }  
+  
+  
+.favorite-list li::before{
+  content:"1";
+  display: inline-block;
+  width:20px;
+  height:20px;
+  text-align: center;
+  background-color:#999;
+  border-radius: 4px;
+  color:#fff;
+  font-size:1.4rem;
+}
+.favorite-list li:nth-child(2)::before{
+  content:"2";
+}
+.favorite-list li:nth-child(3)::before{
+  content:"3"
+}
+.favorite-list li:nth-child(4)::before{
+  content:"4"
+  .favorite-list a{
+    width:124px;
+    display: inline-block;
+  }
+  .favorite-list em{
+    background-image: url(./images/rank.png);
+    background-repeat: no-repeat;
+    width:9px;
+    height:11px;
+    display: inline-block;
+    padding-top: 11px;
+    overflow:hidden;
+    vertical-align: middle;
+    
+  }
+  .down{
+    background-position: 0 -45px;
+  }
+  .stop{
+    background-position: 0 -21px;
+  }
+  
+} */
+.favorite-list a{
+  flex-grow:1;
+  /* background-color: lime;
+  display: inline-block; */
+}
+.up,.down,.stop{
+  display: inline-block;
+  /* 
+  up,down,stop아이콘 끝 위치하게 하는 배치 방법 
+  float:right;display:inlin-block필요없지만 
+  favorite-list a 안에 글씨 크기가 커지면 공수가 많이 들어감 */
+  /* position: absolute;
+  top:50%;
+  right:0;
+  margin-top:-5px; */
+  font-style: normal;
+  width:9px;
+  height:11px;
+  padding-top:11px;
+  overflow: hidden;
+  background-image: url(./images/rank.png);
+  background-repeat: no-repeat;
+  background-position: 0 0;
+
+}
+
+.stop{
+  background-position: 0 50%;
+}
+.down{
+  background-position: 0 100%;
+}
+.favorite-more{
+  position: absolute;
+  padding:8px;
+  top:-8px;
+  right:-8px;
 }
 /* 슬로건 */
 .slogan{
