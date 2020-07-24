@@ -29,7 +29,10 @@ body{
   overflow:hidden;
   position: absolute;
   margin:-1px;
-  clip-path:polygon(0 0 , 0 0 , 0 0)/* 좌표를 전혀 바꾸지 않고 글씨를 없앨 수 있는 모던기법 */
+  clip-path:polygon(0 0 , 0 0 , 0 0);
+  clip:rect(0 0 0 0);/* position:absolute일때 사용가능 */
+  clip:rect(0,0,0,0)
+  /* 좌표를 전혀 바꾸지 않고 글씨를 없앨 수 있는 모던기법 */
 /*text-indent,opacity로 글씨를 안보이게 하는것은 이슈가 생겨서 비추천  */
 }
 .clearfix::after{
@@ -882,7 +885,8 @@ position:relative;
   width: 19px;
   height: 18px;
   border: 0;
-  padding: 0;;
+  padding: 0;
+  vertical-align: top;/* 파이어폭스에서 baseline문제있어서 넣은 코드 */
   cursor: pointer;
 }
 .btn-wrap .btn-prev{
