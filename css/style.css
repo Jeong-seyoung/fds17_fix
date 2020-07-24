@@ -662,7 +662,9 @@ float:right;
 }
 .icon-plus::before {
   color: hsla(110, 70%, 50%, 1);
-}/* ----------------------------------- */
+}
+
+/* ----------------------------------- */
 
 
 /* 게시판 normal-flow*/
@@ -823,12 +825,111 @@ position:relative;
   top:-8px;
   right:-8px;
   padding:8px;
-  /* background-color:lightgray; */
+}
+/* 신규 이벤트 및 관련 사이트*/
+
+/* 신규 이벤트 */
+
+.gradient-box{
+ border:1px solid #aaa;
+ border-radius: 5px;
+ padding:10px;
+ background:#ccc linear-gradient(180deg,#ccc,#eee);
+}
+.event{
+  border-bottom:1px solid #aaa;
+  background-color: yellow;
+  position: relative;
+}
+.event-heading{
+  font-size:1.6rem;
+}
+.event-heading span{
+  color:#db5629;
+  margin:0;
+}
+.event-thumbnail,.event-brief{
+  margin:10px 0;
+
 }
 
-/* ----------------------------------- */
-/* .board ul{padding-top:40px;} */
+.eventDetail{
 
+}
+.event-thumbnail img{
+ border:1px solid #aaa;
+ box-shadow: 5px 5px 0 0 #999;
+}
+.event-brief{
+
+}
+
+.event-brief em{
+  font-style: normal;
+}
+
+
+.btn-wrap{
+  position: absolute;
+  top:0;
+  right:0;
+  background-color:pink;
+}
+.btn-next,.btn-prev{
+  background-color: #ccc;
+  background-image: url(./images/back_forward.png);
+  background-repeat: no-repeat;
+  width: 19px;
+  height: 18px;
+  border: 0;
+  padding: 0;;
+  cursor: pointer;
+}
+.btn-wrap .btn-prev{
+  background-position:0 0;
+  
+}
+.btn-wrap .btn-next{
+  background-position:-36px 0;
+}
+
+/*.btn-wrap{
+  background-color:yellow;
+  height:18px;
+  position: absolute;
+  right:0;
+  top:0;
+}
+.btn-wrap button{
+  background:#ccc url(./images/back_forward.png) no-repeat;
+  /* 속기법을 사용하면 나중에 상속 및 구성점수에 의해서 문제가 생길 수 있으니
+   개별속성으로 같은 구성점수에서 덮어씌우는 형태로 만드는게 문제를 덜 야기한다. 
+  width:19px;
+  height:100%;
+  border:0;
+  padding:0;
+  margin:0;
+  overflow:hidden;
+  cursor:pointer;
+  padding:18px 0 0 0;
+  /* IR기술-padding트릭사용
+  패딩을 주면 버튼의 box-sizing=boder-box이라서 내부에서 콘텐츠를 밀어낼 수 있음
+  overflow니까 안보일 것이다 라는 관점에서 padding-top을 높이 값만큼 줘볼까?
+  but 크로스브라우징에서 문제 발생
+  .btn-wrap에 height:18px로 고정시켜줌
+  button은 height를 100%해줌
+
+  또는
+  IR기술-text-indent트릭사용
+  text-indent:width값만큼 들여쓰기됨
+  white-space:nowrap
+  text-indent트릭을 이용하면 다음 글자가 줄바꿈되서 글자가 보일 수 있음꼭 white-space를 같이 사용해야함
+
+  IR기술-position트릭사용
+  콘텐츠에 제약이 들어가고 공수가 많이 들어감
+  
+}
+*/
 /* 슬로건 */
 .slogan{
  background-color: orange;
