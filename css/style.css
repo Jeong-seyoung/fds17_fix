@@ -1076,6 +1076,7 @@ position:relative;
   height: 100%;
   background: url(./images/coffee.png) no-repeat 0 0 scroll;
   position: absolute;
+  z-index: 10;
   top: 0;
   left: 0;
 }
@@ -1095,32 +1096,69 @@ position:relative;
 .slogan-brief q::after{
   content: '';  
 }
+
+/*footer*/
 .footer-bg{
   background: #ccc linear-gradient(180deg, #ccc, #eee);
   width: 100%;
   display: flex;
+  padding-top:15px;
+  padding-bottom:15px;
   flex-flow: column nowrap;
   align-items: center;
 }
 .footer{
-  /* padding: 20px 0; */
+  padding-left:170px;
+  padding-right:100px;
+  position: relative;
+  
 }
+/* 푸터 로고 */
 .footer-logo{
-  /* float:left; */
+  top:35px;
+  left:35px;
+  position: absolute;
 }
+/* 가이드 링크 */
 .guide-list{
-  /* background: #7B8385; */
-  /* padding: 0; */
-  /* list-style: none; */
-}
-.guide-list li a{
-  /* color: #fff; */
-}
-.footer{
-  background-color: skyblue;
+  list-style: none;
+  margin:0;
+  padding: 4px 20px;
+  background: #7B8385;
+  color:#fff;
+  display: flex;
+  flex-flow: row nowrap;
+  border-radius: 5px;
+  justify-content: space-between;
 }
 
+.guide-list a{
+  display: block;
+  padding:6px 15px;
+  text-transform: uppercase;
+  
+}
+/* 주소 및 연락처,이메일 */
+.address{
+  font-style: normal;
+  margin-top:10px;
+  margin-bottom:5px;
+}
+.address span{
+  margin-right:10px;
+}
+/* 저작권 */
+.copyright{
+  font-size: 1.4rem;
+  display: block;
+}
+/* html5,css3 배지 */
+.badge{
+  position: absolute;
+  top:10px;
+  right:0;
 
+}
 
 
 /* 단축키 */
